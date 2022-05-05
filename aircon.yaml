@@ -5,6 +5,7 @@ substitutions:
   status_led: D2
   friendly_name: "Aircondition"
   
+  #hvis du manuelt vil styre blæser og kompressor kan du sætte til false
   internal_switches: "true"
 
 esphome:
@@ -98,7 +99,8 @@ switch:
     id: compressor
     restore_mode: ALWAYS_OFF
 
-
+# og den der kan du ændre til hvor du vil have temperatur til termostaten til at komme fra... 
+# der er header på pcb til at få noget sensor på, men jeg har ikke brugt det... jeg brugte bare en temperatur fra en sensor i HA
 sensor:
   - platform: homeassistant
     id: ha_temperature
@@ -122,6 +124,8 @@ climate:
       max_temperature: 35 °C
       temperature_step: 0.5 °C
 
+
+# mener det var der omkring jeg havde det før, for at sikre at den ikke starter og stopper unødvendigt meget
     min_cooling_off_time: 120s
     min_cooling_run_time: 300s
 
